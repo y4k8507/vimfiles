@@ -202,6 +202,8 @@ inoremap {<CR> {}<LEFT>
 inoremap [<CR> []<LEFT>
 inoremap (<CR> ()<LEFT>
 inoremap <<CR> <><LEFT>
+inoremap "<CR> ""<LEFT>
+inoremap '<CR> ''<LEFT>
 
 " 全角の括弧系を補完入力
 inoremap 「<CR> 「」<LEFT>

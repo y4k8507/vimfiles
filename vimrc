@@ -143,6 +143,7 @@ call dein#add('Shougo/dein.vim')
 " Plugin
 call dein#add('Shougo/Unite.vim')
 call dein#add('scrooloose/nerdtree')
+call dein#add('tpope/vim-fugitive')
 
 " ColorScheme
 call dein#add('w0ng/vim-hybrid')

@@ -227,3 +227,6 @@ xmap <Leader>j [jedi]
 
 " syntastic
 noremap <C-c> :SyntasticCheck<CR>
+
+" 選択範囲を検索
+vnoremap * "zy:let @/ = @z<CR>n

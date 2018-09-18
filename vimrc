@@ -186,6 +186,9 @@ let g:jedi#goto_command = "<C-j>"
 " Pydocを表示
 let g:jedi#documentation_command = "<C-k>"
 
+" ジャンプ時の開き方の設定
+let g:jedi#use_splits_not_buffers = "winwidth"
+
 "---------------------------------------------------------------------------
 " syntastic の設定:
 "---------------------------------------------------------------------------

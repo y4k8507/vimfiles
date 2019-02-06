@@ -143,7 +143,8 @@ call dein#add('Shougo/dein.vim')
 " Plugin
 call dein#add('Shougo/Unite.vim')
 call dein#add('scrooloose/nerdtree')
-call dein#add('tpope/vim-fugitive')
+call dein#add('vim-scripts/taglist.vim')
+call dein#add('https://github.com/wesleyche/SrcExpl.git')
 
 " ColorScheme
 call dein#add('w0ng/vim-hybrid')
@@ -157,6 +158,7 @@ call dein#add('scrooloose/syntastic')
  
 " Rust
 call dein#add('rust-lang/rust.vim')
+
 
 " if dein#check_install()
 "   call dein#install()
@@ -186,9 +188,6 @@ let g:jedi#goto_command = "<C-j>"
 " Pydocを表示
 let g:jedi#documentation_command = "<C-k>"
 
-" ジャンプ時の開き方の設定
-let g:jedi#use_splits_not_buffers = "winwidth"
-
 "---------------------------------------------------------------------------
 " syntastic の設定:
 "---------------------------------------------------------------------------
@@ -197,6 +196,21 @@ let g:syntastic_auto_loc_list=2
 let g:syntastic_python_checkers = ['flake8']
 " let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 let g:syntastic_mode_map = { 'mode': 'passive' }
+
+"---------------------------------------------------------------------------
+" taglist の設定:
+"---------------------------------------------------------------------------
+" vim起動時に自動で開く
+let Tlist_Auto_Open = 1
+
+" 自動アップデートをオン
+let Tlist_Auto_Update = 1
+
+" 右側にウィンドウを表示
+let Tlist_Use_Right_Window = 1
+
+" taglistウィンドウのみならVimを終了
+let Tlist_Exit_OnlyWindow = 1
 
 "---------------------------------------------------------------------------
 " キーマップに関する設定:
@@ -215,7 +229,6 @@ inoremap （<CR> （）<LEFT>
 
 " Pythonを編集中に実行する設定
 autocmd BufNewFile,BufRead *.py nnoremap <F5> :!python %
-autocmd BufNewFile,BufRead *.py nnoremap <F6> :!python -m pdb %
 
 " quickfixが更新されたら自動で開くようにできる
 autocmd QuickfixCmdPost vimgrep copen
@@ -232,5 +245,11 @@ xmap <Leader>j [jedi]
 " syntastic
 noremap <C-c> :SyntasticCheck<CR>
 
-" 選択範囲を検索
-vnoremap * "zy:let @/ = @z<CR>n
+" Tlist
+nnoremap <F2> :TlistToggle<CR>
+
+" SrcExpl
+nnoremap <F3> :SrcExplToggle<CR>
+
+" NERDTree、Tlist、SrcExplを一度に開く・閉じる
+nnoremap <F4> :NERDTreeToggle<CR>:SrcExplToggle<CR>:TlistToggle<CR>

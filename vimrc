@@ -151,7 +151,7 @@ call dein#add('w0ng/vim-hybrid')
 call dein#add('nanotech/jellybeans.vim')
 call dein#add('vim-scripts/Zenburn')
 call dein#add('nathanaelkane/vim-indent-guides')
-call dein#add('davidhalter/jedi-vim')
+" call dein#add('davidhalter/jedi-vim')
 call dein#add('ujihisa/unite-colorscheme')
 call dein#add('thinca/vim-quickrun')
 call dein#add('scrooloose/syntastic')
@@ -236,11 +236,11 @@ autocmd QuickfixCmdPost vimgrep copen
 " NERDTreeをC-eで開くように設定
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
-" jedi
-nnoremap [jedi] <Nop>
-xnoremap [jedi] <Nop>
-nmap <Leader>j [jedi]
-xmap <Leader>j [jedi]
+" " jedi
+" nnoremap [jedi] <Nop>
+" xnoremap [jedi] <Nop>
+" nmap <Leader>j [jedi]
+" xmap <Leader>j [jedi]
 
 " syntastic
 noremap <C-c> :SyntasticCheck<CR>

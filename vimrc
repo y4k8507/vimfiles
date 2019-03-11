@@ -145,16 +145,31 @@ call dein#add('Shougo/Unite.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('vim-scripts/taglist.vim')
 call dein#add('https://github.com/wesleyche/SrcExpl.git')
+call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('thinca/vim-quickrun')
+" call dein#add('davidhalter/jedi-vim')
+
+if has('job') && has('channel') && has('timers')
+	call dein#add('w0rp/ale')
+
+	" ale
+	let g:ale_lint_on_enter=0
+	let g:ale_linters={'python':['flake8']}
+	noremap <C-c> :ALEToggle<CR>
+
+else
+	call dein#add('scrooloose/syntastic')
+
+	" syntastic
+	noremap <C-c> :SyntasticCheck<CR>
+
+endif
 
 " ColorScheme
 call dein#add('w0ng/vim-hybrid')
 call dein#add('nanotech/jellybeans.vim')
 call dein#add('vim-scripts/Zenburn')
-call dein#add('nathanaelkane/vim-indent-guides')
-" call dein#add('davidhalter/jedi-vim')
 call dein#add('ujihisa/unite-colorscheme')
-call dein#add('thinca/vim-quickrun')
-call dein#add('scrooloose/syntastic')
  
 " Rust
 call dein#add('rust-lang/rust.vim')
@@ -241,9 +256,6 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " xnoremap [jedi] <Nop>
 " nmap <Leader>j [jedi]
 " xmap <Leader>j [jedi]
-
-" syntastic
-noremap <C-c> :SyntasticCheck<CR>
 
 " Tlist
 nnoremap <F2> :TlistToggle<CR>

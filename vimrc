@@ -245,6 +245,9 @@ inoremap （<CR> （）<LEFT>
 " Pythonを編集中に実行する設定
 autocmd BufNewFile,BufRead *.py nnoremap <F5> :!python %
 
+" Vim Scriptを編集中に実行する設定
+autocmd BufNewFile,BufRead *.vim nnoremap <F5> :source %
+
 " quickfixが更新されたら自動で開くようにできる
 autocmd QuickfixCmdPost vimgrep copen
 

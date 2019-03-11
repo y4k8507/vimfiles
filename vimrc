@@ -231,12 +231,12 @@ let Tlist_Exit_OnlyWindow = 1
 " キーマップに関する設定:
 "---------------------------------------------------------------------------
 " 半角の括弧系を補完入力
-inoremap {<CR> {}<LEFT>
-inoremap [<CR> []<LEFT>
-inoremap (<CR> ()<LEFT>
-inoremap <<CR> <><LEFT>
-inoremap "<CR> ""<LEFT>
-inoremap '<CR> ''<LEFT>
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+inoremap < <><LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
 
 " 全角の括弧系を補完入力
 inoremap 「<CR> 「」<LEFT>
@@ -265,3 +265,9 @@ nnoremap <F3> :SrcExplToggle<CR>
 
 " NERDTree、Tlist、SrcExplを一度に開く・閉じる
 nnoremap <F4> :NERDTreeToggle<CR>:SrcExplToggle<CR>:TlistToggle<CR>
+
+" インサートモードでESCの代わりにjjで抜ける
+inoremap <silent> jj <ESC>
+
+" zzで保存を行うようにする
+nnoremap zz :w<CR>

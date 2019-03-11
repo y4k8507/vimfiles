@@ -14,8 +14,8 @@ set cmdheight=2
 " フォント設定:
 "
 " 半角文字の設定
-set guifont=MS_Gothic:h10
+set guifont=MS_Gothic:h12
 
 " 全角文字の設定
-set guifontwide=MS_Gothic:h10
+set guifontwide=MS_Gothic:h12
 "---------------------------------------------------------------------------

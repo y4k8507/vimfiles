@@ -147,6 +147,7 @@ call dein#add('vim-scripts/taglist.vim')
 call dein#add('https://github.com/wesleyche/SrcExpl.git')
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('thinca/vim-quickrun')
+call dein#add('tpope/vim-fugitive')
 " call dein#add('davidhalter/jedi-vim')
 
 if has('job') && has('channel') && has('timers')
@@ -274,3 +275,6 @@ inoremap <silent> jj <ESC>
 
 " zzで保存を行うようにする
 nnoremap zz :w<CR>
+
+" ビジュアルモードで選択した範囲を検索する
+vnoremap * "zy:let @/ = @z<CR>n

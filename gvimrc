@@ -19,3 +19,4 @@ set guifont=MS_Gothic:h12
 " ‘SŠp•¶š‚Ìİ’è
 set guifontwide=MS_Gothic:h12
 "---------------------------------------------------------------------------
+autocmd GUIEnter * set transparency=200

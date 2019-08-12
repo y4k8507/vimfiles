@@ -232,16 +232,16 @@ let Tlist_Exit_OnlyWindow = 1
 " キーマップに関する設定:
 "---------------------------------------------------------------------------
 " 半角の括弧系を補完入力
-inoremap { {}<LEFT>
-inoremap [ []<LEFT>
-inoremap ( ()<LEFT>
-inoremap < <><LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
+" inoremap { {}<LEFT>
+" inoremap [ []<LEFT>
+" inoremap ( ()<LEFT>
+" inoremap < <><LEFT>
+" inoremap " ""<LEFT>
+" inoremap ' ''<LEFT>
 
 " 全角の括弧系を補完入力
-inoremap 「<CR> 「」<LEFT>
-inoremap （<CR> （）<LEFT>
+" inoremap 「<CR> 「」<LEFT>
+" inoremap （<CR> （）<LEFT>
 
 " Pythonを編集中に実行する設定
 autocmd BufNewFile,BufRead *.py nnoremap <F5> :!python %

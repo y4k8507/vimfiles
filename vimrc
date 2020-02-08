@@ -53,6 +53,9 @@ syntax on
 " clipboardの設定
 set clipboard=unnamed
 
+" ファイル読み込み時、文字コードの自動判別の順番
+set fileencodings=utf-8,cp932,sjis,euc-jp
+
 " vimの文字コードをUTF-8に設定
 set enc=utf-8
 

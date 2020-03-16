@@ -71,6 +71,15 @@ set shiftwidth=4
 " 全角記号の表示問題対応
 set ambiwidth=double
 
+" 画面分割時、下に追加する。
+set splitbelow
+
+" 画面分割時、右に追加する。
+set splitright
+
+" 読み込むctagsにpythonのインストール先を追加
+set tags=./tags,tags,c:/Python/x86_64/Python38/tags
+
 "---------------------------------------------------------------------------
 " 編集に関する設定:
 "---------------------------------------------------------------------------
@@ -152,6 +161,7 @@ call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('thinca/vim-quickrun')
 call dein#add('tpope/vim-fugitive')
 " call dein#add('davidhalter/jedi-vim')
+call dein#add('mattn/webapi-vim')
 
 if has('job') && has('channel') && has('timers')
 	call dein#add('w0rp/ale')

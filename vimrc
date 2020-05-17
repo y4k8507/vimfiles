@@ -160,7 +160,7 @@ call dein#add('https://github.com/wesleyche/SrcExpl.git')
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('thinca/vim-quickrun')
 call dein#add('tpope/vim-fugitive')
-" call dein#add('davidhalter/jedi-vim')
+call dein#add('davidhalter/jedi-vim')
 call dein#add('mattn/webapi-vim')
 
 if has('job') && has('channel') && has('timers')
@@ -200,6 +200,8 @@ filetype plugin indent on
 "---------------------------------------------------------------------------
 " jedi の設定:
 "---------------------------------------------------------------------------
+set pythonthreedll=c:\Python\x86_64\Python38\python38.dll
+
 let g:jedi#auto_initialization = 1
 let g:jedi#auto_vim_configuration = 1
 let g:jedi#popup_on_dot = 0

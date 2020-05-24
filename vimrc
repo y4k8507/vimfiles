@@ -294,3 +294,15 @@ nnoremap zx :q<CR>
 
 " ビジュアルモードで選択した範囲を検索する
 vnoremap * "zy:let @/ = @z<CR>n
+
+" 新規タブを開くようにする
+noremap <leader>tn :tabnew<CR>
+
+" ウィンドウ移動
+noremap <leader>j <C-W>j
+noremap <leader>h <C-W>h
+noremap <leader>l <C-W>l
+noremap <leader>k <C-W>k
+
+" ハイライトの消去
+noremap <leader>noh :noh<CR>

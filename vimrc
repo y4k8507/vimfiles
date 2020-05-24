@@ -80,6 +80,9 @@ set splitright
 " 読み込むctagsにpythonのインストール先を追加
 set tags=./tags,tags,c:/Python/x86_64/Python38/tags
 
+" leaderの設定
+let mapleader = "\<Space>"
+
 "---------------------------------------------------------------------------
 " 編集に関する設定:
 "---------------------------------------------------------------------------
@@ -202,22 +205,17 @@ filetype plugin indent on
 "---------------------------------------------------------------------------
 set pythonthreedll=c:\Python\x86_64\Python38\python38.dll
 
+" 初期化（1:初期化する）
 let g:jedi#auto_initialization = 1
+
+" Vim completeoptの初期化（1:初期化する）
 let g:jedi#auto_vim_configuration = 1
+
+" 挿入モードでドット入力時に自動補完（0:自動保管しない）
 let g:jedi#popup_on_dot = 0
 
-" 補完キーの設定
-let g:jedi#completions_command = "<C-Space>"
-
-" 変数の宣言場所へジャンプ
-let g:jedi#goto_assignments_command = "<C-g>"
-
-" クラス、関数定義にジャンプ
-let g:jedi#goto_definitions_command = "<C-n>"
-let g:jedi#goto_command = "<C-j>"
-
-" Pydocを表示
-let g:jedi#documentation_command = "<C-k>"
+" ジャンプ（go to）時、splitで開く（bottom:bottomで開く）
+let g:jedi#use_splits_not_buffers = "bottom"
 
 "---------------------------------------------------------------------------
 " syntastic の設定:
@@ -290,6 +288,9 @@ inoremap <silent> jj <ESC>
 
 " zzで保存を行うようにする
 nnoremap zz :w<CR>
+
+" zqで閉じるようにする
+nnoremap zx :q<CR>
 
 " ビジュアルモードで選択した範囲を検索する
 vnoremap * "zy:let @/ = @z<CR>n

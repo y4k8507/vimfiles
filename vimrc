@@ -215,7 +215,7 @@ let g:jedi#auto_vim_configuration = 1
 let g:jedi#popup_on_dot = 0
 
 " ジャンプ（go to）時、splitで開く（bottom:bottomで開く）
-let g:jedi#use_splits_not_buffers = "bottom"
+" let g:jedi#use_splits_not_buffers = "bottom"
 
 "---------------------------------------------------------------------------
 " syntastic の設定:
@@ -278,11 +278,6 @@ nnoremap <F3> :SrcExplToggle<CR>
 nnoremap <F4> :NERDTreeToggle<CR>:SrcExplToggle<CR>:TlistToggle<CR>
 
 " jedi-vimにて、ジャンプ（go to）時のsplit設定
-"if g:jedi#use_splits_not_buffers == ""
-"	let g:jedi#use_splits_not_buffers = "bottom"
-"else
-"	let g:jedi#use_splits_not_buffers = ""
-"endif
 nnoremap <F6> :call ChangeJediVimSplit()<CR>
 
 " インサートモードでESCの代わりにjjで抜ける
@@ -309,6 +304,8 @@ noremap <leader>k <C-W>k
 " ハイライトの消去
 noremap <leader>noh :noh<CR>
 
+" Terminal-Jobモード時、ESCキーでTerminal-Normalモードに切り替える
+tnoremap <ESC> <C-w><S-n>
 
 function! ChangeJediVimSplit()
 	if g:jedi#use_splits_not_buffers == ""

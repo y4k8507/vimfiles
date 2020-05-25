@@ -268,12 +268,6 @@ autocmd QuickfixCmdPost vimgrep copen
 " NERDTreeをC-eで開くように設定
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
-" " jedi
-" nnoremap [jedi] <Nop>
-" xnoremap [jedi] <Nop>
-" nmap <Leader>j [jedi]
-" xmap <Leader>j [jedi]
-
 " Tlist
 nnoremap <F2> :TlistToggle<CR>
 
@@ -282,6 +276,14 @@ nnoremap <F3> :SrcExplToggle<CR>
 
 " NERDTree、Tlist、SrcExplを一度に開く・閉じる
 nnoremap <F4> :NERDTreeToggle<CR>:SrcExplToggle<CR>:TlistToggle<CR>
+
+" jedi-vimにて、ジャンプ（go to）時のsplit設定
+"if g:jedi#use_splits_not_buffers == ""
+"	let g:jedi#use_splits_not_buffers = "bottom"
+"else
+"	let g:jedi#use_splits_not_buffers = ""
+"endif
+nnoremap <F6> :call ChangeJediVimSplit()<CR>
 
 " インサートモードでESCの代わりにjjで抜ける
 inoremap <silent> jj <ESC>
@@ -306,3 +308,13 @@ noremap <leader>k <C-W>k
 
 " ハイライトの消去
 noremap <leader>noh :noh<CR>
+
+
+function! ChangeJediVimSplit()
+	if g:jedi#use_splits_not_buffers == ""
+		let g:jedi#use_splits_not_buffers = "bottom"
+	else
+		let g:jedi#use_splits_not_buffers = ""
+	endif
+	echo ":jedi#use_splits_not_buffers = " . g:jedi#use_splits_not_buffers
+endfunction

@@ -304,6 +304,9 @@ noremap <leader>k <C-W>k
 " ハイライトの消去
 noremap <leader>noh :noh<CR>
 
+" Terminalモードの起動
+noremap <leader>term :term<CR>
+
 " Terminal-Jobモード時、ESCキーでTerminal-Normalモードに切り替える
 tnoremap <ESC> <C-w><S-n>
 

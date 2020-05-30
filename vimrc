@@ -304,6 +304,10 @@ noremap <leader>k <C-W>k
 " ハイライトの消去
 noremap <leader>noh :noh<CR>
 
+" vimrc,gvimrcの編集
+noremap <leader>ev :e $HOME\vimfiles\vimrc<CR>
+noremap <leader>egv :e $HOME\vimfiles\gvimrc<CR>
+
 " Terminalモードの起動
 noremap <leader>term :term<CR>
 

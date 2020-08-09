@@ -165,6 +165,7 @@ call dein#add('thinca/vim-quickrun')
 call dein#add('tpope/vim-fugitive')
 call dein#add('davidhalter/jedi-vim')
 call dein#add('mattn/webapi-vim')
+call dein#add('dhruvasagar/vim-table-mode')
 
 if has('job') && has('channel') && has('timers')
 	call dein#add('w0rp/ale')

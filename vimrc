@@ -35,8 +35,8 @@ set number
 " ルーラーを表示
 set ruler
 
-" 長い行を折り返して表示
-set wrap
+" 長い行を折り返さないで表示
+set nowrap
 
 " 常にステータス行を表示
 set laststatus=2

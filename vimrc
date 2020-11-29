@@ -325,3 +325,8 @@ function! ChangeJediVimSplit()
 	endif
 	echo ":jedi#use_splits_not_buffers = " . g:jedi#use_splits_not_buffers
 endfunction
+
+function! CheatGrep(keyword)
+	" vimgrepコマンドを実行
+	execute 'vim ' . a:keyword . ' D:/cheatsheet/**.*'
+endfunction

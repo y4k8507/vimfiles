@@ -326,7 +326,13 @@ function! ChangeJediVimSplit()
 	echo ":jedi#use_splits_not_buffers = " . g:jedi#use_splits_not_buffers
 endfunction
 
-function! CheatGrep(keyword)
+function! CheatGrep()
+	" キーワードを入力
+	let s:user_input = input("Grepキーワード >>> ")
+	echo "\n"
+
 	" vimgrepコマンドを実行
-	execute 'vim ' . a:keyword . ' D:/cheatsheet/**.*'
+	if s:user_input != ""
+		execute 'vim ' . s:user_input . ' D:/cheatsheet/**.*'
+	endif
 endfunction

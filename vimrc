@@ -317,6 +317,9 @@ noremap <leader>term :term<CR>
 " Terminal-Jobモード時、ESCキーでTerminal-Normalモードに切り替える
 tnoremap <ESC> <C-w><S-n>
 
+" チートシートをgrepをする
+noremap <leader>cg :call CheatGrep()<CR>
+
 function! ChangeJediVimSplit()
 	if g:jedi#use_splits_not_buffers == ""
 		let g:jedi#use_splits_not_buffers = "bottom"

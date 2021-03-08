@@ -83,6 +83,9 @@ set tags=./tags,tags,c:/Python/x86_64/Python38/tags
 " leaderの設定
 let mapleader = "\<Space>"
 
+" pathの設定
+set path+=**,
+
 "---------------------------------------------------------------------------
 " 編集に関する設定:
 "---------------------------------------------------------------------------
@@ -336,6 +339,6 @@ function! CheatGrep()
 
 	" vimgrepコマンドを実行
 	if s:user_input != ""
-		execute 'vim ' . s:user_input . ' D:/cheatsheet/**.*'
+		execute 'vim ' . s:user_input . ' C:/Users/User/cheatsheet/**.*'
 	endif
 endfunction

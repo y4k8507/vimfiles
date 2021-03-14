@@ -342,3 +342,15 @@ function! CheatGrep()
 		execute 'vim ' . s:user_input . ' C:/Users/User/cheatsheet/**.*'
 	endif
 endfunction
+
+function! Trans()
+	" 翻訳内容を入力
+	let s:user_input = input("翻訳(英語 -> 日本語) >>> ")
+	echo "\n"
+
+	" Pythonを実行
+	if s:user_input != ""
+		py3file python/trans.py
+	endif
+
+endfunction

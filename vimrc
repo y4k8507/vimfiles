@@ -343,6 +343,15 @@ function! CheatGrep()
 	endif
 endfunction
 
+" 翻訳機能を呼び出す
+noremap <leader>trans :call TransNormalMode()<CR>
+
+function! TransNormalMode()
+	
+	call Trans()
+
+endfunction
+
 function! Trans()
 
 	" 翻訳内容の設定
@@ -358,9 +367,9 @@ function! Trans()
 	" Pythonを実行
 	if s:user_input != ""
 		py3file $HOME/vimfiles/python/trans.py
-	endif
 
-	" リターン結果をレジスタに設定
-	let @* = g:trans_ret
+		" リターン結果をレジスタに設定
+		let @* = g:trans_ret
+	endif
 
 endfunction

@@ -11,3 +11,5 @@ translator = Translator()
 
 trans_sentence = translator.translate(sentence, src=trans_src, dest=trans_dest)
 print(trans_sentence.text)
+
+vim.command('let g:trans_ret = "' + trans_sentence.text + '"')

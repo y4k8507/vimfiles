@@ -360,4 +360,7 @@ function! Trans()
 		py3file $HOME/vimfiles/python/trans.py
 	endif
 
+	" リターン結果をレジスタに設定
+	let @* = g:trans_ret
+
 endfunction

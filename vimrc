@@ -345,23 +345,42 @@ endfunction
 
 " 翻訳機能を呼び出す
 noremap <leader>trans :call TransNormalMode()<CR>
+vnoremap <leader>trans :call TransVisualMode()<CR>
 
 function! TransNormalMode()
 	
-	call Trans()
+	" 翻訳実行
+	call Trans("")
 
 endfunction
 
-function! Trans()
+function! TransVisualMode()
+	
+	" 選択行の文字列を無名レジスタに取得
+	silent normal gvy
+
+	" 翻訳実行
+	call Trans(@@)
+
+endfunction
+
+function! Trans(sentence)
 
 	" 翻訳内容の設定
 	let s:trans_src="en"
 	let s:trans_dest="ja"
 
-	" 翻訳内容を入力
-	if s:trans_src == "en" && s:trans_dest == "ja"
-		let s:user_input = input("翻訳(英語 -> 日本語) >>> ")
-		echo "\n"
+	" 呼び出し元から翻訳元の指定があった場合
+	if a:sentence != ""
+		let s:user_input = a:sentence
+
+	else
+		" 翻訳内容を入力
+		if s:trans_src == "en" && s:trans_dest == "ja"
+			let s:user_input = input("翻訳(英語 -> 日本語) >>> ")
+			echo "\n"
+		endif
+
 	endif
 
 	" Pythonを実行

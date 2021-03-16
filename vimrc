@@ -350,7 +350,7 @@ function! Trans()
 
 	" Pythonを実行
 	if s:user_input != ""
-		py3file python/trans.py
+		py3file $HOME/vimfiles/python/trans.py
 	endif
 
 endfunction

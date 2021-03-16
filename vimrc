@@ -344,9 +344,16 @@ function! CheatGrep()
 endfunction
 
 function! Trans()
+
+	" 翻訳内容の設定
+	let s:trans_src="en"
+	let s:trans_dest="ja"
+
 	" 翻訳内容を入力
-	let s:user_input = input("翻訳(英語 -> 日本語) >>> ")
-	echo "\n"
+	if s:trans_src == "en" && s:trans_dest == "ja"
+		let s:user_input = input("翻訳(英語 -> 日本語) >>> ")
+		echo "\n"
+	endif
 
 	" Pythonを実行
 	if s:user_input != ""

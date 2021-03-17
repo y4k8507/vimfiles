@@ -332,17 +332,6 @@ function! ChangeJediVimSplit()
 	echo ":jedi#use_splits_not_buffers = " . g:jedi#use_splits_not_buffers
 endfunction
 
-function! CheatGrep()
-	" キーワードを入力
-	let s:user_input = input("Grepキーワード >>> ")
-	echo "\n"
-
-	" vimgrepコマンドを実行
-	if s:user_input != ""
-		execute 'vim ' . s:user_input . ' C:/Users/User/cheatsheet/**.*'
-	endif
-endfunction
-
 " 翻訳機能を呼び出す
 noremap <leader>tr :call TransNormalMode()<CR>
 vnoremap <leader>tr :call TransVisualMode()<CR>
@@ -352,3 +341,4 @@ noremap <leader>disptr :call DisplayTransConfig()<CR>
 
 " 分割したvimrcの読み込み
 source $HOME\vimfiles\translate.vim
+source $HOME\vimfiles\cheatsheet.vim

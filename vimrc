@@ -347,6 +347,12 @@ endfunction
 noremap <leader>trans :call TransNormalMode()<CR>
 vnoremap <leader>trans :call TransVisualMode()<CR>
 
+noremap <leader>settrans :call SetTransConfig()<CR>
+
+" 翻訳内容の設定
+let g:trans_src="en"
+let g:trans_dest="ja"
+
 function! TransNormalMode()
 	
 	" 翻訳実行
@@ -365,10 +371,6 @@ function! TransVisualMode()
 endfunction
 
 function! Trans(sentence)
-
-	" 翻訳内容の設定
-	let s:trans_src="en"
-	let s:trans_dest="ja"
 
 	" 呼び出し元から翻訳元の指定があった場合
 	if a:sentence != ""
@@ -389,6 +391,26 @@ function! Trans(sentence)
 
 		" リターン結果をレジスタに設定
 		let @* = g:trans_ret
+	endif
+
+endfunction
+
+function! SetTransConfig()
+
+	echo "1:英語 -> 日本語　2:日本語 -> 英語"
+	let s:user_input = input(">>> ")
+	echo "\n"
+
+	if s:user_input == "1"
+		let g:trans_src="en"
+		let g:trans_dest="ja"
+		echo "英語 -> 日本語で設定しました。"
+
+	elseif s:user_input == "2"
+		let g:trans_src="ja"
+		let g:trans_dest="en"
+		echo "日本語 -> 英語で設定しました。"
+
 	endif
 
 endfunction

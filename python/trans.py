@@ -4,8 +4,8 @@ from googletrans import Translator
 import vim
 
 sentence = vim.eval("s:user_input")
-trans_src = vim.eval("s:trans_src")
-trans_dest = vim.eval("s:trans_dest")
+trans_src = vim.eval("g:trans_src")
+trans_dest = vim.eval("g:trans_dest")
 
 translator = Translator()
 

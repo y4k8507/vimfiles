@@ -344,11 +344,11 @@ function! CheatGrep()
 endfunction
 
 " 翻訳機能を呼び出す
-noremap <leader>trans :call TransNormalMode()<CR>
-vnoremap <leader>trans :call TransVisualMode()<CR>
+noremap <leader>tr :call TransNormalMode()<CR>
+vnoremap <leader>tr :call TransVisualMode()<CR>
 
-noremap <leader>settrans :call SetTransConfig()<CR>
-noremap <leader>disptrans :call DisplayTransConfig()<CR>
+noremap <leader>settr :call SetTransConfig()<CR>
+noremap <leader>disptr :call DisplayTransConfig()<CR>
 
 " 翻訳内容の設定
 let g:trans_src="en"
@@ -379,9 +379,14 @@ function! Trans(sentence)
 
 	else
 		" 翻訳内容を入力
-		if s:trans_src == "en" && s:trans_dest == "ja"
+		if g:trans_src == "en" && g:trans_dest == "ja"
 			let s:user_input = input("翻訳(英語 -> 日本語) >>> ")
 			echo "\n"
+
+		elseif g:trans_src == "ja" && g:trans_dest == "en"
+			let s:user_input = input("翻訳(日本語 -> 英語) >>> ")
+			echo "\n"
+
 		endif
 
 	endif

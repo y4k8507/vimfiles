@@ -348,6 +348,7 @@ noremap <leader>trans :call TransNormalMode()<CR>
 vnoremap <leader>trans :call TransVisualMode()<CR>
 
 noremap <leader>settrans :call SetTransConfig()<CR>
+noremap <leader>disptrans :call DisplayTransConfig()<CR>
 
 " 翻訳内容の設定
 let g:trans_src="en"
@@ -410,6 +411,18 @@ function! SetTransConfig()
 		let g:trans_src="ja"
 		let g:trans_dest="en"
 		echo "日本語 -> 英語で設定しました。"
+
+	endif
+
+endfunction
+
+function! DisplayTransConfig()
+
+	if g:trans_src == "ja" && g:trans_dest == "en"
+		echo "翻訳設定：日本語 -> 英語"
+
+	elseif g:trans_src == "en" && g:trans_dest == "ja"
+		echo "翻訳設定：英語 -> 日本語"
 
 	endif
 

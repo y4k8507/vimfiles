@@ -339,6 +339,20 @@ vnoremap <leader>tr :call TransVisualMode()<CR>
 noremap <leader>settr :call SetTransConfig()<CR>
 noremap <leader>disptr :call DisplayTransConfig()<CR>
 
+" Quickfixリストの操作
+noremap <leader>qfn :call NextQuickfix()<CR>
+noremap <leader>qfp :call PrevQuickfix()<CR>
+
+function! NextQuickfix()
+	copen
+	cnext
+endfunction
+
+function! PrevQuickfix()
+	copen
+	cprevious
+endfunction
+
 " 分割したvimrcの読み込み
 source $HOME\vimfiles\translate.vim
 source $HOME\vimfiles\cheatsheet.vim

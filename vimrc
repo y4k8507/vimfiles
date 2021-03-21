@@ -357,12 +357,17 @@ endfunction
 noremap <leader>stock :call ScrapDailyDataFromYahooFinance()<CR>
 function! ScrapDailyDataFromYahooFinance()
 
-	let s:stock_code = input("銘柄コード >>> ")
-	echo "\n"
+	echo "1:デイリーデータ取得"
+	let s:user_input = input(">>> ")
 
-	if s:stock_code != ""
-		let s:sqlite3_path = $HOME . "/vimfiles/db/Finance.sqlite3"
-		py3file $HOME/vimfiles/python/scrap.py
+	if s:user_input == "1"
+		let s:stock_code = input("銘柄コード >>> ")
+		echo "\n"
+
+		if s:stock_code != ""
+			let s:sqlite3_path = $HOME . "/vimfiles/db/Finance.sqlite3"
+			py3file $HOME/vimfiles/python/scrap.py
+		endif
 	endif
 
 endfunction

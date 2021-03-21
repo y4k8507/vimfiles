@@ -87,5 +87,5 @@ if __name__ == "__main__":
     data_list = scrap_daily_data(content)
 
     # Insert to Sqlite3 database
-    sqlite3_path = vim.eval("s:sqlite3_path")
+    sqlite3_path = vim.eval("g:sqlite3_path")
     insert_data(sqlite3_path, stock_code, data_list)

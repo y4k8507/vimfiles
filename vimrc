@@ -353,6 +353,20 @@ function! PrevQuickfix()
 	cprevious
 endfunction
 
+" 株式機能を呼び出す。
+noremap <leader>stock :call ScrapDailyDataFromYahooFinance()<CR>
+function! ScrapDailyDataFromYahooFinance()
+
+	let s:stock_code = input("銘柄コード >>> ")
+	echo "\n"
+
+	if s:stock_code != ""
+		let s:sqlite3_path = $HOME . "/vimfiles/db/Finance.sqlite3"
+		py3file $HOME/vimfiles/python/scrap.py
+	endif
+
+endfunction
+
 " 分割したvimrcの読み込み
 source $HOME\vimfiles\translate.vim
 source $HOME\vimfiles\cheatsheet.vim

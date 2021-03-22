@@ -377,6 +377,14 @@ function! ScrapDailyDataFromYahooFinance()
 		if s:stock_code != ""
 			py3file $HOME/vimfiles/python/util_db.py
 		endif
+
+		" vim-table-modeを有効化
+		TableModeEnable
+
+		" データを貼り付ける
+		normal p
+		normal o||
+		normal 0k
 	
 	endif
 

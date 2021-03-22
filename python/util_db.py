@@ -12,7 +12,9 @@ if __name__ == "__main__":
     conn = sqlite3.connect(sqlite3_path)
     cur = conn.cursor()
 
-    sql = 'select * from daily_data where stock_code = "{}"'.format(stock_code)
+    sql = 'select * from daily_data'
+    sql += ' where stock_code = "{}"'.format(stock_code)
+    sql += ' order by trade_date desc'
     cur.execute(sql)
 
     rlist = list()

@@ -52,7 +52,7 @@ def insert_data(sqlite3_path: str, stock_code: str, data_list: list):
         sql = ""
         sql = "insert into daily_data values({},{},{},{},{},{},{},{})".format(
                 "'" + stock_code + "'",
-                "'" + data[0] + "'",
+                "'" + conversion_date(data[0]) + "'",
                 data[1],
                 data[2],
                 data[3],
@@ -74,6 +74,28 @@ def insert_data(sqlite3_path: str, stock_code: str, data_list: list):
 
     # Close
     conn.close()
+
+
+def conversion_date(cdata: str):
+
+    rstr = ""
+
+    buf = cdata.split("年")
+    rstr += buf[0]
+
+    buf = buf[1].split("月")
+    if len(buf[0]) == 1:
+        rstr += "0" + buf[0]
+    else:
+        rstr += buf[0]
+
+    buf = buf[1].split("日")
+    if len(buf[0]) == 1:
+        rstr += "0" + buf[0]
+    else:
+        rstr += buf[0]
+
+    return rstr
 
 
 if __name__ == "__main__":

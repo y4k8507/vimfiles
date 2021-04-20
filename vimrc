@@ -334,7 +334,7 @@ endfunction
 
 " 翻訳機能を呼び出す
 noremap <leader>tr :call TransNormalMode()<CR>
-vnoremap <leader>tr :call TransVisualMode()<CR>
+vnoremap <leader>tr :<C-U>call TransVisualMode()<CR>
 
 noremap <leader>settr :call SetTransConfig()<CR>
 noremap <leader>disptr :call DisplayTransConfig()<CR>

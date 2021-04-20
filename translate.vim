@@ -14,8 +14,13 @@ function! TransVisualMode()
 	" 選択行の文字列を無名レジスタに取得
 	silent normal gvy
 
+	" 改行とタブをスペースに置き換え
+	let l:sentence = @@
+	let l:sentence = substitute(l:sentence, "\n", " ", "g")
+	let l:sentence = substitute(l:sentence, "\t", " ", "g")
+
 	" 翻訳実行
-	call Trans(@@)
+	call Trans(l:sentence)
 
 endfunction
 

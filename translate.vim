@@ -1,3 +1,10 @@
+" 翻訳機能を呼び出す
+noremap <leader>tr :call TransNormalMode()<CR>
+vnoremap <leader>tr :<C-U>call TransVisualMode()<CR>
+
+noremap <leader>settr :call SetTransConfig()<CR>
+noremap <leader>disptr :call DisplayTransConfig()<CR>
+
 " 翻訳内容の設定
 let g:trans_src="en"
 let g:trans_dest="ja"

@@ -1,3 +1,6 @@
+" チートシートをgrepをする
+noremap <leader>cg :call CheatGrep()<CR>
+
 function! CheatGrep()
 	" キーワードを入力
 	let s:user_input = input("Grepキーワード >>> ")
@@ -5,6 +8,6 @@ function! CheatGrep()
 
 	" vimgrepコマンドを実行
 	if s:user_input != ""
-		execute 'vim ' . s:user_input . ' C:/Users/User/cheatsheet/**.*'
+		execute 'vim ' . s:user_input . ' $HOME/cheatsheet/**/*'
 	endif
 endfunction

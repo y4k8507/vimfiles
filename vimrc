@@ -320,9 +320,6 @@ noremap <leader>term :term<CR>
 " Terminal-Jobモード時、ESCキーでTerminal-Normalモードに切り替える
 tnoremap <ESC> <C-w><S-n>
 
-" チートシートをgrepをする
-noremap <leader>cg :call CheatGrep()<CR>
-
 function! ChangeJediVimSplit()
 	if g:jedi#use_splits_not_buffers == ""
 		let g:jedi#use_splits_not_buffers = "bottom"
@@ -331,13 +328,6 @@ function! ChangeJediVimSplit()
 	endif
 	echo ":jedi#use_splits_not_buffers = " . g:jedi#use_splits_not_buffers
 endfunction
-
-" 翻訳機能を呼び出す
-noremap <leader>tr :call TransNormalMode()<CR>
-vnoremap <leader>tr :<C-U>call TransVisualMode()<CR>
-
-noremap <leader>settr :call SetTransConfig()<CR>
-noremap <leader>disptr :call DisplayTransConfig()<CR>
 
 " Quickfixリストの操作
 noremap <leader>qfn :call NextQuickfix()<CR>

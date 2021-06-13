@@ -5,7 +5,7 @@ let g:sqlite3_path = $HOME . "/vimfiles/db/Finance.sqlite3"
 
 function! ScrapDailyDataFromYahooFinance()
 
-	echo "1:デイリーデータ取得　2:データ参照"
+	echo "1:デイリーデータ取得　2:データ参照　3:データ初期化"
 	let s:user_input = input(">>> ")
 
 	if s:user_input == "1"
@@ -21,6 +21,7 @@ function! ScrapDailyDataFromYahooFinance()
 		echo "\n"
 
 		if s:stock_code != ""
+			let s:exec_type = "ref"
 			py3file $HOME/vimfiles/python/util_db.py
 		endif
 
@@ -31,6 +32,20 @@ function! ScrapDailyDataFromYahooFinance()
 		normal p
 		normal o||
 		normal 0k
+	
+	elseif s:user_input == "3"
+		let s:stock_code = input("本当に初期化しますか(y/n)？ >>> ")
+		echo "\n"
+
+		if s:stock_code == "y"
+			let s:exec_type = "init_table"
+			py3file $HOME/vimfiles/python/util_db.py
+
+			echo "初期化しました。"
+		else
+			echo "中断しました。"
+
+		endif
 	
 	endif
 

@@ -17,14 +17,30 @@ function! ScrapDailyDataFromYahooFinance()
 		endif
 	
 	elseif s:user_input == "2"
-		let s:stock_code = input("銘柄コード >>> ")
+		echo "\n"
+		echo "1:daily_data　2:owned_stock"
+		let s:user_input = input(">>> ")
 		echo "\n"
 
-		if s:stock_code != ""
-			let s:exec_type = "ref"
-			py3file $HOME/vimfiles/python/util_db.py
-		endif
+		if s:user_input == "1"
+		
+			let s:stock_code = input("銘柄コード >>> ")
+			echo "\n"
 
+			if s:stock_code != ""
+				let s:exec_type = "ref"
+				let s:table_name = "daily_data"
+				py3file $HOME/vimfiles/python/util_db.py
+			endif
+
+		elseif s:user_input == "2"
+
+			let s:exec_type = "ref"
+			let s:table_name = "owned_stock"
+			py3file $HOME/vimfiles/python/util_db.py
+
+		endif
+	
 		" vim-table-modeを有効化
 		TableModeEnable
 
@@ -32,7 +48,7 @@ function! ScrapDailyDataFromYahooFinance()
 		normal p
 		normal o||
 		normal 0k
-	
+
 	elseif s:user_input == "3"
 		let s:stock_code = input("本当に初期化しますか(y/n)？ >>> ")
 		echo "\n"

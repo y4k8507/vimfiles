@@ -5,29 +5,46 @@ import sqlite3
 def data_reference():
 
     # Get an argument
-    stock_code = vim.eval("s:stock_code")
     sqlite3_path = vim.eval("g:sqlite3_path")
+    table_name = vim.eval("s:table_name")
 
     # Open
     conn = sqlite3.connect(sqlite3_path)
     cur = conn.cursor()
 
-    sql = 'select * from daily_data'
-    sql += ' where stock_code = "{}"'.format(stock_code)
-    sql += ' order by trade_date desc'
-    cur.execute(sql)
+    if table_name == "daily_data":
+        # Get an argument
+        stock_code = vim.eval("s:stock_code")
 
-    rlist = list()
-    # Header
-    rlist.append("|銘柄コード|日付|始値|高値|低値|終値|出来高|調整後終値|")
+        sql = 'select * from ' + table_name
+        sql += ' where stock_code = "{}"'.format(stock_code)
+        sql += ' order by trade_date desc'
+        cur.execute(sql)
+
+        rlist = list()
+        # Header
+        rlist.append("|銘柄コード|日付|始値|高値|低値|終値|出来高|調整後終値|")
+
+    elif table_name == "owned_stock":
+        sql = 'select * from ' + table_name
+        sql += ' order by trade_date desc'
+        cur.execute(sql)
+
+        rlist = list()
+        # Header
+        rlist.append("|日付|銘柄コード|売買|価格|数量|手数料|損益|")
+
+    else:
+        # 処理終了
+        return
 
     # Data
     for row in cur.fetchall():
         buf_list = map(str, row)
-        daily_data = "|".join(buf_list)
-        daily_data = "|" + daily_data + "|"
+        data = "|".join(buf_list)
+        data = "|" + data + "|"
 
-        rlist.append(daily_data)
+        rlist.append(data)
 
     # Close
     conn.close()
@@ -89,7 +106,7 @@ def table_initialize():
 
 if __name__ == "__main__":
 
-    exec_type= vim.eval("s:exec_type")
+    exec_type = vim.eval("s:exec_type")
 
     if exec_type == "ref":
         data_reference()

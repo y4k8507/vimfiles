@@ -23,7 +23,7 @@ set title
 syntax on
 
 " clipboardの設定
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " ファイル読み込み時、文字コードの自動判別の順番
 set fileencodings=utf-8,cp932,sjis,euc-jp

@@ -170,6 +170,8 @@ call dein#add('davidhalter/jedi-vim')
 call dein#add('mattn/webapi-vim')
 call dein#add('dhruvasagar/vim-table-mode')
 call dein#add('alvan/vim-closetag')
+" call dein#add('prabirshrestha/vim-lsp')
+" call dein#add('mattn/vim-lsp-settings')
 
 
 if has('job') && has('channel') && has('timers')
@@ -344,6 +346,6 @@ function! PrevQuickfix()
 endfunction
 
 " 分割したvimrcの読み込み
-source $HOME\vimfiles\translate.vim
-source $HOME\vimfiles\cheatsheet.vim
-source $HOME\vimfiles\stock.vim
+source $HOME\vimfiles\vim\translate.vim
+source $HOME\vimfiles\vim\cheatsheet.vim
+source $HOME\vimfiles\vim\stock.vim

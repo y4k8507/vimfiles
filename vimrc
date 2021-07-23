@@ -349,3 +349,4 @@ endfunction
 source $HOME\vimfiles\vim\translate.vim
 source $HOME\vimfiles\vim\cheatsheet.vim
 source $HOME\vimfiles\vim\stock.vim
+source $HOME\vimfiles\vim\sqlite3.vim

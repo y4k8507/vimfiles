@@ -32,11 +32,22 @@ def selectAll(conn):
     return rlist
 
 
+def executeSQL(sql):
+    cur = conn.cursor()
+
+    result = cur.execute(sql)
+    rlist = list()
+    for row in result:
+        rlist.append(str(row))
+
+    return rlist
+
+
 if __name__ == "__main__":
 
     # Get an argument from Vim
     db_path = vim.eval("g:db_path")
-    exe_type = vim.eval("s:exe_type")
+    exe_type = vim.eval("l:exe_type")
 
     # Open
     conn = db_connect(db_path)
@@ -49,6 +60,12 @@ if __name__ == "__main__":
 
     elif exe_type == "select_all":
         rlist = selectAll(conn)
+
+        vim.command('let s:result_select = "' + ",".join(rlist) + '"')
+
+    elif exe_type == "execute_sql":
+        execute_sql = vim.eval("l:exe_sql")
+        rlist = executeSQL(execute_sql)
 
         vim.command('let s:result_select = "' + ",".join(rlist) + '"')
 

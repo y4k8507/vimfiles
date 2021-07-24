@@ -21,17 +21,34 @@ def getTableList(conn):
     return rlist
 
 
+def selectAll(conn):
+    cur = conn.cursor()
+
+    result = cur.execute('select * from daily_data')
+    rlist = list()
+    for row in result:
+        rlist.append(str(row))
+
+    return rlist
+
+
 if __name__ == "__main__":
 
     # Get an argument from Vim
+    db_path = vim.eval("g:db_path")
     exe_type = vim.eval("s:exe_type")
 
     # Open
-    conn = db_connect("C:/Users/User/vimfiles/db/Finance.sqlite3")
+    conn = db_connect(db_path)
 
     # Execute and Return
     if exe_type == "get_table_list":
         rlist = getTableList(conn)
+
+        vim.command('let s:result_select = "' + ",".join(rlist) + '"')
+
+    elif exe_type == "select_all":
+        rlist = selectAll(conn)
 
         vim.command('let s:result_select = "' + ",".join(rlist) + '"')
 

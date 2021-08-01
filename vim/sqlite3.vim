@@ -1,6 +1,6 @@
 " ショートカットキーの設定
+noremap <leader>dex :call ExplorerSqlite3()<cr>
 noremap <leader>dtl :call GetTableList()<CR>
-noremap <leader>dsa :call SelectAll()<CR>
 vnoremap <leader>des :<C-U>call ExecuteSQL()<CR>
 
 " グローバル変数の設定
@@ -11,16 +11,15 @@ function! GetTableList()
 
 	py3file $HOME/vimfiles/python/sqlite3.py
 
-	echo s:result_select
+	if win_gotoid(g:win_result_sql) == 0
+		echo "出力画面が存在しません"
+	endif
 
-endfunction
+	" SQLの結果を表示する
+	call PasteResultWindow()
 
-function! SelectAll()
-	let l:exe_type = "select_all"
-
-	py3file $HOME/vimfiles/python/sqlite3.py
-
-	echo s:result_select
+	" 出力結果を整形する
+	execute '%s/,/\r/g'
 
 endfunction
 
@@ -34,10 +33,46 @@ function! ExecuteSQL()
 	let l:exe_sql = substitute(l:exe_sql, "\n", " ", "g")
 
 	let l:exe_type = "execute_sql"
-	" let s:exe_sql = "select * from daily_data"
 
 	py3file $HOME/vimfiles/python/sqlite3.py
 
-	echo s:result_select
+	" SQLの結果を表示する
+	call PasteResultWindow()
+
+	" 出力結果を整形する
+	execute '%s/),(/)\r(/g'
+
+endfunction
+
+function! ExplorerSqlite3()
+
+	" Sqlite3用のタブを生成
+	execute 'tabnew'
+	let g:win_exe_sql = win_getid()
+	execute 'new'
+	let g:win_result_sql = win_getid()
+
+	if win_gotoid(g:win_exe_sql) == 0
+		echo "初期化に失敗しました。"
+	endif
+
+endfunction
+
+function! PasteResultWindow()
+
+	" SQL結果ウィンドウに移動
+	if win_gotoid(g:win_result_sql) == 1
+
+		" 画面の内容を全消去
+		execute '%d'
+
+		" 選択領域用レジスタにSQL結果をコピーし、貼り付ける
+		let @+ = s:result_select
+		normal p
+
+	else 
+		echo "結果画面が存在しません。"
+
+	endif
 
 endfunction

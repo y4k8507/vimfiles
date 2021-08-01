@@ -21,17 +21,6 @@ def getTableList(conn):
     return rlist
 
 
-def selectAll(conn):
-    cur = conn.cursor()
-
-    result = cur.execute('select * from daily_data')
-    rlist = list()
-    for row in result:
-        rlist.append(str(row))
-
-    return rlist
-
-
 def executeSQL(sql):
     cur = conn.cursor()
 
@@ -55,11 +44,6 @@ if __name__ == "__main__":
     # Execute and Return
     if exe_type == "get_table_list":
         rlist = getTableList(conn)
-
-        vim.command('let s:result_select = "' + ",".join(rlist) + '"')
-
-    elif exe_type == "select_all":
-        rlist = selectAll(conn)
 
         vim.command('let s:result_select = "' + ",".join(rlist) + '"')
 

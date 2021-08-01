@@ -1,5 +1,6 @@
 " ショートカットキーの設定
 noremap <leader>dex :call ExplorerSqlite3()<cr>
+noremap <leader>dcl :call CloseSqlite3()<cr>
 noremap <leader>dtl :call GetTableList()<CR>
 vnoremap <leader>des :<C-U>call ExecuteSQL()<CR>
 
@@ -54,6 +55,18 @@ function! ExplorerSqlite3()
 
 	if win_gotoid(g:win_exe_sql) == 0
 		echo "初期化に失敗しました。"
+	endif
+
+endfunction
+
+function! CloseSqlite3()
+
+	if win_gotoid(g:win_exe_sql) == 1
+		execute 'q!'
+	endif
+
+	if win_gotoid(g:win_result_sql) == 1
+		execute 'q!'
 	endif
 
 endfunction

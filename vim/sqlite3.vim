@@ -42,6 +42,8 @@ function! ExecuteSQL()
 
 	" 出力結果を整形する
 	execute '%s/),(/)\r(/g'
+	execute '1,$normal x'
+	execute '1,$normal $x'
 
 endfunction
 

@@ -300,6 +300,9 @@ noremap <leader>term :term<CR>
 " Terminal-Jobモード時、ESCキーでTerminal-Normalモードに切り替える
 tnoremap <ESC> <C-w><S-n>
 
+" vim_lspのショートカットキー
+noremap <leader>ldd :LspDocumentDiagnostics<CR>
+
 function! ChangeJediVimSplit()
 	if g:jedi#use_splits_not_buffers == ""
 		let g:jedi#use_splits_not_buffers = "bottom"
